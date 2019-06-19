@@ -86,14 +86,14 @@ X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size = splitRatio,rand
 #Bayes classification
 
 # Fitting the NaiveBayes Model to the dataset
-from sklearn.naive_bayes import GaussianNB
-classifier = GaussianNB()
-classifier.fit(X_train,Y_train)
+#from sklearn.naive_bayes import GaussianNB
+#classifier = GaussianNB()
+#classifier.fit(X_train,Y_train)
 
 filename = 'finalized_model_Bayes.sav'
 
 #SavingtheModel
-pickle.dump(classifier, open(filename, 'wb'))
+#pickle.dump(classifier, open(filename, 'wb'))
 
 #loadingtheModel
 classifier = pickle.load(open(filename, 'rb'))
@@ -122,14 +122,14 @@ print("F1 Score ", 2*Prec*Rec/(Prec + Rec ))
 
 # Fitting the RandomForest Model to the dataset
 
-from sklearn.ensemble import RandomForestClassifier
-classifier = RandomForestClassifier(n_estimators = 100, criterion = 'entropy', random_state = 0, n_jobs = -1)
-classifier.fit(X_train, Y_train)
+#from sklearn.ensemble import RandomForestClassifier
+#classifier = RandomForestClassifier(n_estimators = 100, criterion = 'entropy', random_state = 0, n_jobs = -1)
+#classifier.fit(X_train, Y_train)
 
 
 filename = 'finalized_model_RandomForest2.sav'
-pickle.dump(classifier, open(filename, 'wb'))
-#classifier = pickle.load(open(filename, 'rb'))
+#pickle.dump(classifier, open(filename, 'wb'))
+classifier = pickle.load(open(filename, 'rb'))
 
 # Predicting test Set results
 Y_pred = classifier.predict(X_test)
